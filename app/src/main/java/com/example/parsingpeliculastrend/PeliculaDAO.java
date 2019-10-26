@@ -1,5 +1,6 @@
 package com.example.parsingpeliculastrend;
 
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,7 +38,7 @@ public class PeliculaDAO {
             @Override
             public void onFailure(Call<Result> call, Throwable t) {
                 String message = t.getMessage();
-                System.out.println("ha ocurrido un orror" + message);
+                System.out.println("ha ocurrido un error" + message);
                 t.printStackTrace();
 
             }

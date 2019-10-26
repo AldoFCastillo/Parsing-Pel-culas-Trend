@@ -1,28 +1,46 @@
 package com.example.parsingpeliculastrend;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+public class MainActivity extends AppCompatActivity implements PeliculaFragment.PeliculaFragmentListener{
+    PeliculaFragment peliculaFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PeliculaController peliculaController = new PeliculaController();
+        peliculaFragment = new PeliculaFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.activityMainContenedorDeFragment, peliculaFragment).commit();
+
+        /*PeliculaController peliculaController = new PeliculaController();
         peliculaController.getPelicula(new ResultListener<Result>() {
             @Override
             public void onFinish(Result result) {
-                Pelicula pelicula = result.getPeliculaList().get(0);
+                Pelicula pelicula = result.getPeliculaList().get(1);
 
                 Toast.makeText(MainActivity.this, pelicula.getTitle(), Toast.LENGTH_SHORT).show();
+
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.activityMainContenedorDeFragment, peliculaFragment).commit();
+
+
             }
-        });
+        });*/
 
 
+
+    }
+
+    @Override
+    public void informarSeleccionDePeliculaFragment(Pelicula pelicula) {
 
     }
 }

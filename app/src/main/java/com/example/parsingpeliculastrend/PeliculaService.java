@@ -1,10 +1,9 @@
 package com.example.parsingpeliculastrend;
 
-import java.util.List;
+import com.example.parsingpeliculastrend.Result;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 
 public interface PeliculaService {
 
