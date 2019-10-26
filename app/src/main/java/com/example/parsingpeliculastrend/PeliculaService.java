@@ -2,13 +2,14 @@ package com.example.parsingpeliculastrend;
 
 import java.util.List;
 
+import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface PeliculaService {
 
     @GET("4sblo")
-    Call<Result> getPhotos();
+    Call<Result> getPeliculas();
 
     //TODO confirmar metodo para buscar una pelicula
 
